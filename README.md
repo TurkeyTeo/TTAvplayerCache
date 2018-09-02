@@ -1,4 +1,4 @@
-### TTAvplayerCache
+## TTAvplayerCache
 
 我们平时看到的视频文件有许多格式，比如 avi， mkv， rmvb， mov， mp4等等，这些被称为[容器](http://en.wikipedia.org/wiki/Digital_container_format)（[Container](http://wiki.multimedia.cx/index.php?title=Category:Container_Formats)）， 不同的容器格式规定了其中音视频数据的组织方式（也包括其他数据，比如字幕等）。容器中一般会封装有视频和音频轨，也称为视频流（stream）和音频流，播放视频文件的第一步就是根据视频文件的格式，解析出其中封装的视频流、音频流以及字幕（如果有的话），解析的数据读到包 （packet）中，每个包里保存的是视频帧（frame）或音频帧，然后分别对视频帧和音频帧调用相应的解码器（decoder）进行解码，比如使用 H.264编码的视频和MP3编码的音频，会相应的调用H.264解码器和MP3解码器，解码之后得到的就是原始的图像(YUV or RGB)和声音(PCM)数据，然后根据同步好的时间将图像显示到屏幕上，将声音输出到声卡，最终就是我们看到的视频。
 
